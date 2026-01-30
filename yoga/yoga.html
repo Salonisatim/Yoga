@@ -1,0 +1,465 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LotusFlow | Yoga & Wellness</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-sage: #8dad9c;
+            --dark-sage: #6b8275;
+            --soft-cream: #7e8d84;
+            --deep-text: #2d3436;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--deep-text);
+            background-color: var(--soft-cream);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+        /* Floating Animation for Elements */
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .float-anim { animation: floating 4s ease-in-out infinite; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--soft-cream); }
+        ::-webkit-scrollbar-thumb { background: var(--primary-sage); border-radius: 5px; }
+
+        /* Navbar Enhancement */
+        .navbar {
+            background: rgba(255, 255, 255, 0.251) !important;
+            backdrop-filter: blur(15px);
+            transition: all 0.5s ease;
+        }
+
+        /* Hero Parallax */
+        .hero {
+            height: 100vh;
+            
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), 
+                        url('https://cdn.shopify.com/s/files/1/0259/3665/8531/files/0028_Warrior_I_-_Virabhadrasana_I_09_Sara_Ticha_1.jpg?v=1761056334' );
+            background-attachment: fixed; /* Parallax Effect */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+           
+        }
+
+        /* Section Reveal Styles */
+        section { padding: 120px 0; overflow: hidden; }
+
+        .btn-zen {
+            background-color: var(--primary-sage);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            border: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-zen:hover {
+            background-color: var(--dark-sage);
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(141, 173, 156, 0.4);
+            color: white;
+        }
+
+        /* Gallery/Poses Section */
+        .pose-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            margin-bottom: 30px;
+        }
+        
+        .pose-overlay {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: rgba(141, 173, 156, 0.9);
+            color: white;
+            transition: 0.5s ease;
+        }
+
+        .pose-card:hover .pose-overlay { bottom: 0; }
+
+        /* Contact Form Focus Animation */
+        .form-control {
+            border: 2px solid transparent;
+            background: #fff;
+            padding: 12px;
+            transition: 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-sage);
+            box-shadow: none;
+            transform: translateY(-5px);
+        }
+
+        footer { background: white; color:black; padding: 80px 0 20px; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" >
+                <i class="fas fa-leaf me-2" style="color: var(--primary-sage);"></i>LotusFlow 
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="yoga.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="poses.html">Poses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="trainers.html">Trainers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="membership.html">Membership</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="home" class="hero">
+        <div class="container">
+            <h1 class="display-1 fw-bold mb-3" id="hero-title">Breathe In Peace</h1>
+            <p class="fs-4 mb-5 opacity-75" id="hero-subtitle">Modern yoga for a mindful lifestyle.</p>
+            <div id="hero-btn">
+                <a href="membership.html" class="btn btn-zen btn-lg">Explore Classes</a>
+            </div>
+        </div>
+    </div>
+
+    <section id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <div class="float-anim">
+                        <img src="https://plus.unsplash.com/premium_photo-1669446009003-897c401b25e1?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid rounded-4 shadow-lg" alt="Yoga Session" >
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5" data-aos="fade-up">
+                    <span class="text-uppercase tracking-widest text-muted">Our Philosophy</span>
+                    <h2 class="display-4 mb-4">Balance Your Body & Mind</h2>
+                    <p class="lead text-muted mb-4">In a world that never stops moving, LotusFlow  is a place to simply be. Our mission is to provide a sacred space where you can reconnect with your inner self through the ancient practice of yoga.<br><br>
+                     We don't just teach poses; we share a lifestyle of mindfulness and compassion. Guided by experienced instructors, our sessions focus on the harmony between mind, body, and spirit.<br>
+                     <br>"Yoga is the journey of the self, through the self, to the self.".</p>
+                    <div class="row g-4">
+                        <div class="col-6">
+                            <div class="p-3 bg-white rounded shadow-sm border-start border-4 border-success">
+                                <h5 class="mb-0">150+</h5>
+                                <small>Active Students</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-3 bg-white rounded shadow-sm border-start border-4 border-success">
+                                <h5 class="mb-0">12+</h5>
+                                <small>Expert Trainers</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <section id="poses" class="bg-white">
+        <div class="container"><br>
+            <br>
+            <br>
+            <br>
+            <h2 class="text-center mb-5 display-5" data-aos="fade-down">Popular Poses</h2>
+            <div class="row">
+                
+                <div class="col-md-4" data-aos="zoom-in-up" data-aos-delay="200">
+                    <div class="pose-card">
+                        <img src="https://images.pexels.com/photos/3822668/pexels-photo-3822668.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="w-100" alt="Lotus Pose"  height="" width="">
+                        <div class="pose-overlay">
+                            <h4>Padmasana</h4>
+                            <p>Deep meditation and stability.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in-up" data-aos-delay="200">
+                    <div class="pose-card">
+                        <img src="https://plus.unsplash.com/premium_photo-1669446008757-4c3b54f87d7c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-100" alt="Lotus Pose"  height="" width="">
+                        <div class="pose-overlay">
+                            <h4>Padmasana</h4>
+                            <p>Deep meditation and stability.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in-up" data-aos-delay="100">
+                    <div class="pose-card">
+                        <img src="https://images.pexels.com/photos/4057529/pexels-photo-4057529.jpeg" class="w-100" alt="Tree Pose"  height="" width="">
+                        <div class="pose-overlay">
+                            <h4>Vrikshasana</h4>
+                            <p>Improve balance and focus.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in-up" data-aos-delay="200">
+                    <div class="pose-card">
+                        <img src="https://plus.unsplash.com/premium_photo-1663047277029-a2861ec9fb93?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-100" alt="Lotus Pose"  height="" width="">
+                        <div class="pose-overlay">
+                            <h4>Padmasana</h4>
+                            <p>Deep meditation and stability.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in-up" data-aos-delay="100">
+                    <div class="pose-card">
+                        <img src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?q=80&w=1026&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-100" alt="Tree Pose" height="" width="">
+                        <div class="pose-overlay">
+                            <h4>Vrikshasana</h4>
+                            <p>Improve balance and focus.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in-up" data-aos-delay="200">
+                    <div class="pose-card">
+                        <img src="https://images.pexels.com/photos/7592740/pexels-photo-7592740.jpeg" class="w-100" alt="Lotus Pose"  height="" width="">
+                        <div class="pose-overlay">
+                            <h4>Padmasana</h4>
+                            <p>Deep meditation and stability.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in-up" data-aos-delay="100">
+                    <div class="pose-card">
+                        <img src="https://plus.unsplash.com/premium_photo-1669446008850-c2f5eefc74dc?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-100" alt="Tree Pose"  height="" width="">
+                        <div class="pose-overlay">
+                            <h4>Vrikshasana</h4>
+                            <p>Improve balance and focus.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in-up" data-aos-delay="200">
+                    <div class="pose-card">
+                        <img src="https://images.pexels.com/photos/3822668/pexels-photo-3822668.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="w-100" alt="Lotus Pose"  height="" width="">
+                        <div class="pose-overlay">
+                            <h4>Padmasana</h4>
+                            <p>Deep meditation and stability.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in-up" data-aos-delay="300">
+                    <div class="pose-card">
+                        <img src="https://plus.unsplash.com/premium_photo-1669446008814-a9a5df35d0c9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-100" alt="Warrior Pose"  height="" width="">
+                        <div class="pose-overlay">
+                            <h4>Virabhadrasana</h4>
+                            <p>Strength and core endurance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="trainers">
+        <div class="container text-center">
+            <h2 class="display-5 mb-5" data-aos="fade-up">Meet Our Guides</h2>
+            <div class="row g-5">
+                <div class="col-md-4 trainer-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://plus.unsplash.com/premium_photo-1674420731071-4817bba52526?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="trainer-img shadow" alt="Sarah" width="250" height="300">
+                    <h4 class="mt-3">Sarah Jenkins</h4>
+                    <div class="text-success mb-2">
+                        <i class="fab fa-facebook-f mx-2"></i><i class="fab fa-instagram mx-2"></i>
+                    </div>
+                    <p class="small text-muted">Yoga is the journey of the self, through the self, to the self.</p>
+                </div>
+
+                <div class="col-md-4 trainer-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1667586733525-0eea514bfb49?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="trainer-img shadow" alt="Marcus"  width="250" height="300">
+                    <h4 class="mt-3">Marcus Reed</h4>
+                    <div class="text-success mb-2">
+                        <i class="fab fa-twitter mx-2"></i><i class="fab fa-instagram mx-2"></i>
+                    </div>
+                    <p class="small text-muted">Focus on the breath, the rest will follow.</p>
+                </div>
+                
+                <div class="col-md-4 trainer-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://plus.unsplash.com/premium_photo-1669446009003-897c401b25e1?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="trainer-img shadow" alt="Elena"  width="250" height="300">
+                    <h4 class="mt-3">Elena Sofia</h4>
+                    <div class="text-success mb-2">
+                        <i class="fab fa-linkedin-in mx-2"></i><i class="fab fa-instagram mx-2"></i>
+                    </div>
+                    <p class="small text-muted">Finding stillness in a moving world.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="membership" class="bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 display-5" data-aos="fade-down">Choose Your Path</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card h-100 p-4 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <i class="fas fa-seedling fa-3x mb-4 text-success opacity-50"></i>
+                            <h3 class="card-title">Starter</h3>
+                            <h2 class="my-4 fw-bold">$49<span class="fs-6 text-muted">/mo</span></h2>
+                            <ul class="list-unstyled mb-5">
+                                <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>8 Classes/Month</li>
+                                <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Locker Room</li>
+                                <li class="text-muted"><del>Private Sessions</del></li>
+                            </ul>
+                            <button class="btn btn-outline-dark rounded-pill w-100">Get Started</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card h-100 p-4 border-0 shadow-lg text-center bg-white border-top border-5 border-success">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-3">RECOMMENDED</span>
+                            <h3 class="card-title">Pro Flow</h3>
+                            <h2 class="my-4 fw-bold text-success">$89<span class="fs-6 text-muted">/mo</span></h2>
+                            <ul class="list-unstyled mb-5 text-start ps-4">
+                                <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Unlimited Classes</li>
+                                <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Full Spa Access</li>
+                                <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>1 Private Session/mo</li>
+                            </ul>
+                            <button class="btn btn-zen w-100">Select Pro</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card h-100 p-4 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <i class="fas fa-crown fa-3x mb-4 text-warning opacity-50"></i>
+                            <h3 class="card-title">Zen Master</h3>
+                            <h2 class="my-4 fw-bold">$129<span class="fs-6 text-muted">/mo</span></h2>
+                            <ul class="list-unstyled mb-5">
+                                <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>All Features</li>
+                                <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>Free Guest Pass</li>
+                                <li class="mb-2"><i class="fas fa-check me-2 text-success"></i>24/7 Support</li>
+                            </ul>
+                            <button class="btn btn-outline-dark rounded-pill w-100">Join Elite</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <h2 class="display-5 mb-4">Let's Connect</h2>
+                    <p class="mb-5">Have questions about our sessions? We are here to help you start your yoga journey.</p>
+                    <div class="d-flex mb-4">
+                        <div class="bg-success text-white rounded-circle p-3 me-3">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h5>Our Studio</h5>
+                            <p class="text-muted">123 Zen Garden St, , Mumbai, INDIA</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="bg-white p-5 rounded-4 shadow-sm">
+                        <form class="row g-3">
+                            <div class="col-md-6"><input type="text" class="form-control" placeholder="Full Name"></div>
+                            <div class="col-md-6"><input type="email" class="form-control" placeholder="Email Address"></div>
+                            <div class="col-12"><textarea class="form-control" rows="4" placeholder="How can we help?"></textarea></div>
+                            <div class="col-12"><button type="submit" class="btn btn-zen">Send Message</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <h3 class="mb-4 text-black">LotusFlow </h3>
+                    <p>A sanctuary for those seeking peace, strength, and community. Start your practice today.</p>
+                </div>
+                <div class="col-lg-2 offset-lg-2">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled mt-3">
+                        <li><a href="home.html" class="text-decoration-none text-muted">Home</a></li>
+                        <li><a href="about.html" class="text-decoration-none text-muted">About Us</a></li>
+                        <li><a href="membership.html" class="text-decoration-none text-muted">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Newsletter</h5>
+                    <div class="input-group mt-3">
+                        <input type="text" class="form-control" placeholder="Your Email">
+                        <button class="btn btn-zen">Join</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary">
+            <p class="text-center mt-4 mb-0 small opacity-50">&copy; 2026 ZenFlow Wellness Studio. Built for Inner Peace.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({ duration: 1200, once: false });
+
+        // GSAP Hero Animation on Load
+        window.addEventListener('load', () => {
+            gsap.from("#hero-title", { opacity: 0, y: 50, duration: 1, delay: 0.5 });
+            gsap.from("#hero-subtitle", { opacity: 0, y: 30, duration: 1, delay: 0.8 });
+            gsap.from("#hero-btn", { opacity: 0, scale: 0.8, duration: 0.8, delay: 1.2 });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.navbar');
+            if (window.scrollY > 80) {
+                nav.style.padding = '10px 0';
+                nav.classList.add('shadow-lg');
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                nav.style.padding = '20px 0';
+                nav.classList.remove('shadow-lg');
+                nav.style.background = 'rgba(255, 255, 255, 0.8)';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LotusFlow | Yoga & Wellness</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+           --primary-sage: #8dad9c;
+            --dark-sage: #6b8275;
+            --soft-cream: #7e8d84;
+            --deep-text: #2d3436;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--deep-text);
+            background-color: var(--soft-cream);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+        /* Floating Animation for Elements */
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .float-anim { animation: floating 4s ease-in-out infinite; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--soft-cream); }
+        ::-webkit-scrollbar-thumb { background: var(--primary-sage); border-radius: 5px; }
+
+        /* Navbar Enhancement */
+        .navbar {
+            background: rgba(255, 255, 255, 0.251) !important;
+            backdrop-filter: blur(15px);
+            transition: all 0.5s ease;
+        }
+
+       
+        
+       
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-leaf me-2" style="color: var(--primary-sage);"></i>LotusFlow
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="poses.html">Poses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="trainers.html">Trainers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="membership.html">Membership</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+
+    <section id="about">
+        <div class="container"><br>
+            <br>
+            <br>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <div class="float-anim">
+                        <img src="https://plus.unsplash.com/premium_photo-1669446009003-897c401b25e1?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid rounded-4 shadow-lg" alt="Yoga Session">
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5" data-aos="fade-up">
+                    <span class="text-uppercase tracking-widest text-muted">Our Philosophy</span>
+                    <h2 class="display-4 mb-4">Balance Your Body & Mind</h2>
+                    <p class="lead text-muted mb-4">In a world that never stops moving, [Studio Name] is a place to simply be. Our mission is to provide a sacred space where you can reconnect with your inner self through the ancient practice of yoga.<br><br>
+                       We don't just teach poses; we share a lifestyle of mindfulness and compassion. Guided by experienced instructors, our sessions focus on the harmony between mind, body, and spirit.<br>
+                       <br>"Yoga is the journey of the self, through the self, to the self.".</p>
+                    <div class="row g-4">
+                        <div class="col-6">
+                            <div class="p-3 bg-white rounded shadow-sm border-start border-4 border-success">
+                                <h5 class="mb-0">150+</h5>
+                                <small>Active Students</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-3 bg-white rounded shadow-sm border-start border-4 border-success">
+                                <h5 class="mb-0">12+</h5>
+                                <small>Expert Trainers</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({ duration: 1200, once: false });
+
+        // GSAP Hero Animation on Load
+        window.addEventListener('load', () => {
+            gsap.from("#hero-title", { opacity: 0, y: 50, duration: 1, delay: 0.5 });
+            gsap.from("#hero-subtitle", { opacity: 0, y: 30, duration: 1, delay: 0.8 });
+            gsap.from("#hero-btn", { opacity: 0, scale: 0.8, duration: 0.8, delay: 1.2 });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.navbar');
+            if (window.scrollY > 80) {
+                nav.style.padding = '10px 0';
+                nav.classList.add('shadow-lg');
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                nav.style.padding = '20px 0';
+                nav.classList.remove('shadow-lg');
+                nav.style.background = 'rgba(255, 255, 255, 0.8)';
+            }
+        });
+    </script>
+</body>
+</html>
